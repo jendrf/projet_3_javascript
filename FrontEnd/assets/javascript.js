@@ -1,8 +1,11 @@
+
+
+//récupération catégories + travaux 
+
 fetch('http://localhost:5678/api/categories')
   .then(response => response.json())
   .then(categories => {
     const categoryLinks = document.querySelectorAll('.link');
-
     categoryLinks.forEach(link => {
       link.addEventListener('click', (event) => {
         event.preventDefault();
@@ -39,10 +42,20 @@ fetch('http://localhost:5678/api/works')
     gallery.innerHTML = ''; // vide le contenu HTML
 
     data.forEach(image => {
+      const figure = document.createElement("figure");
       const img = document.createElement("img");
+      const figcaption = document.createElement("figcaption");
+      
       img.src = image.imageUrl;
       img.alt = image.title;
-      gallery.appendChild(img);
+      figcaption.textContent = image.title;
+
+      figure.appendChild(img);
+      figure.appendChild(figcaption);
+      gallery.appendChild(figure);
     });
   })
   .catch(error => console.error(error));
+
+
+

@@ -187,7 +187,7 @@ footer nav ul {
 	margin: 2em
 }
 
-/*Ma partie code CSS*/
+/*Code CSS _ JDRF */
 
 
 #category-list li {
@@ -220,9 +220,13 @@ footer nav ul {
 	font-size: bold 12px;
 }
 
+#portfolio .gallery img {
+	width: 100%;
+}
+
 /* Page Login*/
 
-#section_login {
+#login {
 	display: flex;
 	justify-content: center;
     align-items: center;
@@ -230,47 +234,223 @@ footer nav ul {
 	margin-top: 135px;
 }
 
-#section_login h2 {
-	
-}
-
-#section_login form {
+#login form {
 	display: flex;
     flex-direction: column;
 	margin: 35px 35px 0px 35px;
     width: 30%;
 }
 
-#section_login a {
+#login a {
 	color: #3D3D3D;
 	margin-bottom: 30%;
 }
 
-#login_input {
-	height: 40px;
-	border: none;
-	box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-	margin: 7px 0px 20px 0px;
+input[type="email"], input[type="password"] {
+    height: 40px;
+    width: 350px;
+    border: none;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    margin: 7px 0px 20px 0px;
 }
 
-#section_login label {
+#login label {
 	font-size: 13px;
 }
 
-.email_group {
-	display: flex;
-    flex-direction: column;
-	
-}
-
-.password_group {
-	display: flex;
-    flex-direction: column;
-}
 
 input[type="submit" i] {
 	border: none;
 	margin-top: 15px;
 	padding: 10px;
+}
+
+
+/* bannière + boutons modifier*/
+
+.banner {
+	background-color: black;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	font-family: 'Work Sans';
+	
+}
+
+.banner i {
+	margin-right: 15px;
+	background-color: black;
+	color: white;
+	font-weight: 200;
+}
+
+.banner span {
+	margin-right: 50px;
+	background-color: black;
+	color: white;
+	
+}
+
+.banner button {
+	border: white;
+    border-radius: 25px;
+    height: 30px;
+    width: 200px;
+	font-family: 'Work Sans';
+}
+
+#introduction figure {
+	display: flex;
+	flex-direction: column;
+}
+
+.buttonModif {
+	margin: 10px 60px;
+}
+
+.buttonModif i {
+	font-weight: 200;
+    font-size: 18px;
+    color: black;
+	margin-right: 12px;
+}
+
+.buttonModif button {
+	border: none;
+    background-color: initial;
+    font-family: 'Work Sans';
+    font-weight: 400;
+    font-size: 15px;
+}
+
+
+/* bouton modif modal*/ 
+
+.portfoliotitle {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.portfoliotitle a {
+	display: flex;
+	color: black;
+	text-decoration: none;
+	margin-bottom: 25px;
+	margin-left: 25px;
+}
+
+#portfolio p {
+	margin-left: 5px;
+}
+
+#portfolio i {
+	font-weight: 200;
+}
+
+
+/*Fenêtre Modal - modal wrapper, title, icon - ne pas modifier */ 
+
+.modal {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal-wrapper {
+    width: 630px;
+	max-width: calc(100vw - 20px);
+	height: 800px;
+	max-height: calc(100vh - 20px);
+	background-color: #FFFEF8;
+	overflow:auto;
+	border-radius: 5px;
+	
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
+	
+}
+
+#close-modal-button {
+	position:absolute;
+	border: none;
+    background-color: initial;
+	margin-left: 260px;
+	margin-top: 30px;
+	font-size: 20px;
+}
+
+
+.modal-wrapper h3 {
+	display: flex;
+	justify-content: center;
+	margin-top: 80px;
+	margin-bottom: 50px;
+	font-family: 'Work Sans';
+    font-weight: 400;
+	font-size: 27px;
+}
+
+/* modal-wrapper works */ 
+
+.delete-icon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 6px;
+	padding: 4px;
+	font-size: 11px;
+	color: white;
+	background-color: black;
+	border-radius: 2px;
+}
+
+
+.gallery-modal figure {
+	position: relative;
+}
+
+.gallery-modal {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+  	grid-gap: 10px;
+	width: 450px;
+	margin-bottom: 60px;
+	
+}
+
+.add-work-button {
+	background-color: #1D6154;
+	color: white;
+	font-size: 18px;
+	border: none;
+	border-radius: 20px;
+	width: 250px;
+	height: 40px;
+}
+
+.delete-gallery {
+	color: red;
+}
+
+.btnsModifModal {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 40px;
+}
+
+.btnsModifModal a {
+	margin-top: 30px;
 }
 

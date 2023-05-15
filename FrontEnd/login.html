@@ -9,7 +9,9 @@
 	    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	    <meta name="description" content="">
 	    <link rel="stylesheet" href="./assets/style.css">
-	    <script type="module" src="./login.js" defer></script>
+	    <script src="./assets/login.js" defer></script>
+    
+        
     </head>
     <body>
     <div>
@@ -25,21 +27,19 @@
             </nav>
         </header>
         <main>
-            <section id="section_login">
+            <section id="login">
                 <h2>Log In</h2>
                 <form action="#" method="post">
-                    <div class="email_group">
-                        <label for="email">E-mail</label>
-                        <input type="email" name="email" id="login_input">
-                    </div>
-                    <div class="password_group">
-                        <label for="password">Mot de passe</label>
-                        <input type="password" name="password" id="login_input">
-                    </div>
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" id="email">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" name="password" id="password">
                     <input type="submit" value="Se connecter">
+                    
                 </form>
                 <a href="#">Mot de passe oublié</a>
             </section>
+        
         </main>
         <footer>
             <nav>
