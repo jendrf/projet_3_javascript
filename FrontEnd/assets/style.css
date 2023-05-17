@@ -376,19 +376,7 @@ input[type="submit" i] {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-
-	
 }
-
-#close-modal-button {
-	position:absolute;
-	border: none;
-    background-color: initial;
-	margin-left: 260px;
-	margin-top: 30px;
-	font-size: 20px;
-}
-
 
 .modal-wrapper h3 {
 	display: flex;
@@ -453,4 +441,110 @@ input[type="submit" i] {
 .btnsModifModal a {
 	margin-top: 30px;
 }
+
+/* 2nd modal */ 
+
+.addWorkDiv {
+	background-color: #E8F1F6;
+	border : none;
+	width: 430px;
+	height: 200px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.image-icon {
+	width: 70px;
+	
+}
+
+.addWorkDiv span {
+	background-color: #E8F1F6;
+	font-size: 12px;
+}
+
+input.button-ajouter[type="submit"] {
+	background-color:#CBD6DC ;
+	color: #306685;
+	font-size: 14px;
+	margin-top:20px ;
+	margin-bottom: 12px;
+	padding: 12px;
+  }
+
+/* BUTTONS */ 
+
+#close-modal-button {
+	position:absolute;
+	border: none;
+    background-color: initial;
+	font-size: 20px;
+	margin-top: 45px; 
+}
+
+
+/* FORM */
+
+input[type="text"] {
+	height: 40px;
+    width: 350px;
+    border: none;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    margin: 7px 0px 20px 0px;
+	display: flex;
+	justify-content: center;
+}
+
+.modalContent2 form {
+	margin-top: 30px;
+}
+
+.modalContent2 {
+	
+}
+
+/* input.button-ajouter[type="submit"]  */
+
+input.input-title[type="text"] {
+	width : 430px;
+	height: 50px;
+	margin-top: 12px;
+	margin-bottom: 25px;
+
+}
+
+#categorySelect {
+	width : 430px;
+	height: 50px;
+	margin-top: 12px;
+	margin-bottom: 50px;
+	border: none;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+	font-family:'Work Sans';
+	font-size: 15px;
+    padding-left: 10px;
+}
+
+label[for="title"], label[for="category"] {
+	font-size: 15px;
+	font-weight:500;
+  }
+
+#submit-valider.submit-valider {
+	background-color: #A7A7A7;
+	display: flex;
+	justify-content: center;
+	width: 270px ;
+	padding: 13px;
+	margin-top: 30px;
+	font-size: 15px;
+}
+
+.form-category {
+	display: flex;
+    flex-direction: column;
+}
+
 

@@ -89,12 +89,14 @@ const main = document.querySelector("main");
     closeModal.appendChild(closeModalIcon);
     closeButton.appendChild(closeModal);
     mainDivModal.appendChild(closeButton);
+
+
    
  // retour fenêtre 
   const goBackModal = document.createElement("button");
     goBackModal.id = "go-back-modal-button";
   const goBackModalIcon = document.createElement("i");
-    goBackModalIcon.classList.add("fas", "fa-light", "fa-xmark");
+    goBackModalIcon.classList.add("fas", "fa-light", "fa-arrow-left");
   goBackModal.appendChild(goBackModalIcon);
     closeButton.prepend(goBackModal);
 
@@ -108,45 +110,176 @@ const main = document.querySelector("main");
 
   // content modal 
 
-  function generateModalContent(){
+  function generateModalContent() {
     divMainContent.innerHTML = "";
     goBackModal.style.display = "none";
-    
-
+  
     const titleModal = document.createElement("h3");
     titleModal.innerText = "Galerie photos";
     divMainContent.appendChild(titleModal);
-
+  
     divGrid.classList.add("gallery-modal");
     divMainContent.appendChild(divGrid);
-
-
+  
     generateWorksModal();
-
-    const hrSeperator = document.createElement("hr");
-    divMainContent.appendChild(hrSeperator);
-
+  
+    const hrSeparator = document.createElement("hr");
+    divMainContent.appendChild(hrSeparator);
+  
     const buttonsModifModal = document.createElement("div");
     buttonsModifModal.classList.add("btnsModifModal");
     divMainContent.appendChild(buttonsModifModal);
-
-
+  
     const addWorkGallery = document.createElement("button");
     addWorkGallery.innerText = "Ajouter une photo";
     addWorkGallery.classList.add("add-work-button");
     buttonsModifModal.appendChild(addWorkGallery);
-
-    addWorkGallery.addEventListener("click", function(){
-      divMainContent.innerText = "";
-      generateAddWorkModalContent();
+  
+    addWorkGallery.addEventListener("click", function () {
+      divMainContent.innerHTML = "";
+      divMainContent.appendChild(generateAddWorkModalContent());
     });
-
+  
     const deleteGallery = document.createElement("a");
-      deleteGallery.innerText = "Supprimer la galerie";
-      deleteGallery.classList.add("delete-gallery");
-      buttonsModifModal.appendChild(deleteGallery);
-};
+    deleteGallery.innerText = "Supprimer la galerie";
+    deleteGallery.classList.add("delete-gallery");
+    buttonsModifModal.appendChild(deleteGallery);
+  }
+  // 2nd fenêtre modal 
+  
+  function generateAddWorkModalContent() {
 
+    goBackModal.style.display = "inline";
+    
+
+    const modalContent2 = document.createElement("div");
+    modalContent2.classList.add("modalContent2");
+    // titre
+    const titleModal2 = document.createElement("h3");
+    titleModal2.innerText = "Ajout photo";
+    modalContent2.appendChild(titleModal2);
+
+
+    ////////////
+    // Création du formulaire
+    const formModal2 = document.createElement("form");
+    formModal2.id = "form-add-work"; 
+    formModal2.action = "#";
+    formModal2.method = "post";
+
+    // "Ajouter photo"
+
+    const addWork2 = document.createElement("div");
+    addWork2.classList.add("addWorkDiv");
+    formModal2.appendChild(addWork2);
+  
+    const addWork2Icon = document.createElement("img");
+    addWork2Icon.setAttribute("src", "assets/icons/image.png");
+    addWork2Icon.classList.add("image-icon");
+    addWork2.appendChild(addWork2Icon);
+    
+    const addWorkButton = document.createElement("input");
+    addWorkButton.classList.add("button-ajouter");
+    addWorkButton.type = "submit";
+    addWorkButton.value = "+ Ajouter photo";
+    addWork2.appendChild(addWorkButton); 
+    
+    
+    // "Titre"
+    const labelTitle = document.createElement("label");
+    labelTitle.htmlFor = "title";
+    labelTitle.textContent = "Titre";
+    formModal2.appendChild(labelTitle);
+
+    const inputTitle = document.createElement("input");
+    inputTitle.classList.add("input-title");
+    inputTitle.type = "text";
+    inputTitle.name = "title";
+    formModal2.appendChild(inputTitle);
+
+    //  "Catégorie"
+
+    const formCategory2 = document.createElement("div");
+    formCategory2.classList.add("form-category");
+    formModal2.appendChild(formCategory2);
+    
+    const labelCategory = document.createElement("label");
+    labelCategory.htmlFor = "category";
+    labelCategory.textContent = "Catégorie";
+    formCategory2.appendChild(labelCategory);
+
+    const categorySelect = document.createElement("select");
+    categorySelect.id = "categorySelect";
+    formCategory2.appendChild(categorySelect);
+
+    const apiUrl = "http://localhost:5678/api/categories";
+
+fetch(apiUrl)
+  .then(response => response.json())
+  .then(data => {
+    // Une fois les données récupérées, vous pouvez les utiliser pour remplir le select
+    data.forEach(category => {
+      const option = document.createElement("option");
+      option.value = category.id;
+      option.text = category.name;
+      categorySelect.appendChild(option);
+    });
+  })
+  .catch(error => {
+    console.error("Erreur lors de la récupération des catégories :", error);
+  });
+
+    // Séparation
+  const hrSeparator2 = document.createElement("hr");
+  formModal2.appendChild(hrSeparator2);
+
+// Bouton "Valider"
+    const submitButton2 = document.createElement("input");
+    submitButton2.type = "submit";
+    submitButton2.value = "Valider";
+    submitButton2.classList.add("submit-valider");
+    submitButton2.id = "submit-valider";
+    formModal2.appendChild(submitButton2);
+
+// Ajout du formulaire au document
+
+    modalContent2.appendChild(formModal2);
+    
+    const textElement = document.createElement ("span");
+    textElement.textContent = "jpg, png : 4mo max";
+    addWork2.appendChild(textElement);
+    
+
+    return modalContent2;
+  }
+  
+  function buttonAddWork2() {
+    // ajouter une photo 
+  }
+
+  function validateAddWork2 () {
+    // valider photo 
+  }
+
+  
+  function openSecondModal() {
+    const divMainContent = document.getElementById("divMainContent");
+  
+    divMainContent.innerHTML = ""; // Vide le contenu existant
+  
+    divMainContent.appendChild(generateAddWorkModalContent());
+  
+    const secondModalId = "modal-2";
+  
+    openModal(secondModalId);
+  }
+  
+  function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = "block";
+  }
+
+// works 1st modal + delete works 
 
 function generateWorksModal() {
   fetch(`http://localhost:5678/api/works`)
@@ -198,8 +331,6 @@ function generateWorksModal() {
     })
     .catch(error => console.error(error));
 } 
-
-
     //mode edition création bannière + insertion dans la partie header 
     
     function editionMode() {
@@ -272,11 +403,9 @@ function generateWorksModal() {
       const modifP = document.createElement("p");
         modifP.innerText = "modifier";
         linkModal.appendChild(modifP);
-  
                                                        
       let openModal = null;
 
-      
       linkModal.addEventListener("click", function(event){
         event.preventDefault();
         modal.style.display = null;
@@ -288,11 +417,8 @@ function generateWorksModal() {
       openModal.querySelector(".modal-wrapper").addEventListener("click", function(event){
       event.stopPropagation();
       });
-
       });
-
-      
-
+    
       const closeModalFonction = function(event){
         console.log("fermeture modal")
         if (openModal === null) return;
@@ -303,7 +429,7 @@ function generateWorksModal() {
         }, 500);
         openModal.setAttribute("aria-hidden", "true");
         openModal.removeEventListener("click", closeModalFonction);
-        openModal.querySelector(".modal-close-icon").addEventListener("click", closeModalFonction);
+        openModal.querySelector("#close-modal-button").addEventListener("click", closeModalFonction);
         console.log("Clic sur l'icône de fermeture de la modal");
         openModal.querySelector("#close-modal-button").removeEventListener("click", closeModalFonction);
         openModal.querySelector(".modal-wrapper").removeEventListener("click", function(event){
@@ -311,7 +437,6 @@ function generateWorksModal() {
         })
     };
 
-    
 
       // Fonction de rappel
       createBanner("icon-class", "texte", function() {
