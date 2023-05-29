@@ -63,6 +63,7 @@ section {
 	margin: 50px 0
 }
 
+
 h1{
 	display: flex;
 	flex-direction: column;
@@ -91,6 +92,12 @@ nav ul {
 	list-style-type: none;
 
 }
+
+nav > ul > li > a {
+	text-decoration: none;
+	color: black;
+  }
+
 nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
@@ -189,6 +196,7 @@ footer nav ul {
 
 /*Code CSS _ JDRF */
 
+/* Liste catégories */ 
 
 #category-list li {
 	display: flex;
@@ -243,7 +251,7 @@ footer nav ul {
 
 #login a {
 	color: #3D3D3D;
-	margin-bottom: 30%;
+	margin-bottom: 20%;
 }
 
 input[type="email"], input[type="password"] {
@@ -266,7 +274,7 @@ input[type="submit" i] {
 }
 
 
-/* bannière + boutons modifier*/
+/* bannière + boutons "modifier" */
 
 .banner {
 	background-color: black;
@@ -350,7 +358,7 @@ input[type="submit" i] {
 }
 
 
-/*Fenêtre Modal - modal wrapper, title, icon - ne pas modifier */ 
+/*Fenêtre Modal - modal wrapper, title, icon */ 
 
 .modal {
 	position: fixed;
@@ -381,7 +389,7 @@ input[type="submit" i] {
 .modal-wrapper h3 {
 	display: flex;
 	justify-content: center;
-	margin-top: 80px;
+	margin-top: 25px;
 	margin-bottom: 50px;
 	font-family: 'Work Sans';
     font-weight: 400;
@@ -413,7 +421,6 @@ input[type="submit" i] {
   	grid-gap: 10px;
 	width: 450px;
 	margin-bottom: 60px;
-	
 }
 
 .add-work-button {
@@ -477,13 +484,23 @@ input.button-ajouter[type="submit"] {
 /* BUTTONS */ 
 
 #close-modal-button {
-	position:absolute;
 	border: none;
     background-color: initial;
-	font-size: 20px;
-	margin-top: 45px; 
+	font-size: 25px;
+	margin-top: 35px; 
+	margin-left: 520px;
 }
 
+.buttons {
+	display: flex;
+}
+
+#go-back-modal-button {
+	border: none;
+	background-color: initial;
+	font-size: 25px;
+	margin-top: 35px;
+}
 
 /* FORM */
 
@@ -495,17 +512,15 @@ input[type="text"] {
     margin: 7px 0px 20px 0px;
 	display: flex;
 	justify-content: center;
+	font-family: 'Work Sans';
+    font-size: 15px;
+    padding-left: 10px;
+	outline: none;
 }
 
 .modalContent2 form {
 	margin-top: 30px;
 }
-
-.modalContent2 {
-	
-}
-
-/* input.button-ajouter[type="submit"]  */
 
 input.input-title[type="text"] {
 	width : 430px;
@@ -515,7 +530,7 @@ input.input-title[type="text"] {
 
 }
 
-#categorySelect {
+#category-select-id {
 	width : 430px;
 	height: 50px;
 	margin-top: 12px;
@@ -525,12 +540,37 @@ input.input-title[type="text"] {
 	font-family:'Work Sans';
 	font-size: 15px;
     padding-left: 10px;
+	outline: none;
 }
 
-label[for="title"], label[for="category"] {
+.button-ajouter {
+	background-color:#CBD6DC;
+	border: none;
+	border-radius: 25px;
+	width: 180px;
+	height: 40px;
+	color: #306685;
+	font-weight: 600;
+	font-size: 14px;
+	margin-top: 15px;
+	margin-bottom: 7px;
+}
+
+.title-div2 {
+	margin-top: 20px;
+}
+
+label[for="title"] {
 	font-size: 15px;
-	font-weight:500;
-  }
+	font-weight:700;
+}
+
+.form-category {
+	font-size: 15px;
+	font-weight:700;
+	display: flex;
+    flex-direction: column;
+}
 
 #submit-valider.submit-valider {
 	background-color: #A7A7A7;
@@ -542,9 +582,6 @@ label[for="title"], label[for="category"] {
 	font-size: 15px;
 }
 
-.form-category {
-	display: flex;
-    flex-direction: column;
-}
+
 
 
